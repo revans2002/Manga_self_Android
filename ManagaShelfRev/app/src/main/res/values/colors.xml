@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black_blur">#4D000000</color>
+    <color name="grey">#B42F2E2E</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="spinner_item_cost_text">#992A5899</color>
+    <color name="edit_add_button">#035ADE</color>
+    <color name="edit_reset_button">#6E6E6E</color>
+    <color name="manual_update_bg">#F6F3E7</color>
+    <color name="sales_recorded_success_green">#99468846</color>
+    <color name="no_sales_recorded_blue_txt" >#99035ADE</color>
+    <color name="no_sales_recorded_blue_txt_light" >#33035ADE</color>
+    <color name="sales_recorded_success_light_green">#33448846</color>
+    <color name="choose_scan_word_bg">#F5F5F5</color>
+    <color name="primaryblue">#00AEF0</color>
+    <color name="success_green">#A2DCA2</color>
+    <color name="no_salse_blue">#86DEFF</color>
+    <color name="product_return_success_green">#4FCC53</color>
+    <color name="success_available_blue">#7FF4F8</color>
+    <color name="failed_red">#FFD08E</color>
+    <color name="title_text">#D6F1F2</color>
+    <color name="list_item_editinfo">#D9D9D9</color>
+    <color name="red_scroll_thumb">#DE1313</color>
+    <color name="blue_dark_home">#009AF1</color>
+    <color name="blue_light_home">#00EBEB</color>
+    <color name="title_color_home">#B5EBFF</color>
+    <color name="button_rfid_choosescan">#212121</color>
+    <color name="button_text_rfid_choosescan">#EDEDED</color>
+    <color name="button_barcode_choosescan">#212121</color>
+    <color name="tag_read_success_available_button">#CDDEF8</color>
+    <color name="tag_read_success_newtag_button">#6712DF</color>
+    <color name="save_button_color">#E4E4E4</color>
+    <color name="choose_scan_text">#6E6E6E</color>
+    <color name="recyclerview_item_header_clr">#6E6E6E</color>
+    <color name="bottom_nav_item_color">#000000</color>
+    <color name="bottom_nav_ripple">#80000000</color>
+    <color name="chip_unselected">#E0E0E0</color> <!-- Light Gray for Unselected -->
+    <color name="chip_selected">#7FF4F8</color>   <!-- Purple for Selected -->
+    <color name="chip_text_selected">#FFFFFF</color> <!-- White Text on Selected -->
+    <color name="chip_border">#BDBDBD</color>  <!-- Border Color -->
+
+</resources>

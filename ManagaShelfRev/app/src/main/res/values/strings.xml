@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ManagaShelfRev</string>
+    <string name="next"><![CDATA[Next >>]]></string>
+    <string name="previous"><![CDATA[<< Previous]]></string>
+</resources>

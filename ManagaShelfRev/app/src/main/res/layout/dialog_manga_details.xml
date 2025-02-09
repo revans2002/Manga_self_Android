@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_manga_cover"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        />
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_manga_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manga Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
+
+    <!-- Score and Popularity -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/tv_manga_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⭐ Score: 9.5"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tv_manga_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔥 Popularity: 1000"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:paddingStart="12dp" />
+    </LinearLayout>
+
+    <!-- Published Date -->
+    <TextView
+        android:id="@+id/tv_manga_published_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📅 Published: 2024-01-01"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"
+        android:paddingTop="4dp" />
+
+    <!-- Category -->
+    <TextView
+        android:id="@+id/tv_manga_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📚 Category: Action"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"
+        android:paddingTop="4dp" />
+
+    <!-- Like Button -->
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginVertical="15dp"
+    android:layout_height="wrap_content">
+    <!-- Close Button -->
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white" />
+    <ImageButton
+        android:id="@+id/btn_like"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:foregroundGravity="center"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:layout_marginHorizontal="10dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_heart_unfilled" />
+</LinearLayout>
+
+</LinearLayout>

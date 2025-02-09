@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bluebirdcorp.managashelfrev.ui.viewmodel.MangaViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Search EditText -->
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/search_view_bg"
+            android:drawablePadding="8dp"
+            android:elevation="6dp"
+            android:hint="Search Manga..."
+            android:inputType="text"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <!-- Year Tabs -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/yearTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/primaryblue"
+            app:tabTextColor="@color/black" />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="14dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/paginationLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yearTabs"
+            app:listData="@{viewModel.items}" />
+
+        <!-- Pagination Layout -->
+        <LinearLayout
+            android:id="@+id/paginationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="@string/previous"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/tv_page_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Page 1 of 1"
+                android:textColor="@color/primaryblue"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="@string/next"
+                android:textColor="@color/grey" />
+        </LinearLayout>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.items.isEmpty() ? android.view.View.VISIBLE : android.view.View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:background="@color/primaryblue"
+            app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"
+            app:itemIconTint="@color/bottom_nav_text_color"
+            app:itemTextColor="@color/bottom_nav_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav_menu" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgToggleChipGroup"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_upward_arrow"
+            android:padding="7dp"
+            android:contentDescription="Toggle Sort Options"
+            android:clickable="true"
+            android:focusable="true"
+            app:strokeWidth="3dp"
+            app:strokeColor="@color/black"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/paginationLayout"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupSort"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:padding="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/paginationLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipScoreAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="All"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/chip_unselected"
+                app:chipStrokeColor="@color/chip_border"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipScoreAsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Score Asc"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/chip_unselected"
+                app:chipStrokeColor="@color/chip_border"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipScoreDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Score Desc"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/chip_unselected"
+                app:chipStrokeColor="@color/chip_border"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPopularityAsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Popularity Asc"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/chip_unselected"
+                app:chipStrokeColor="@color/chip_border"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPopularityDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Popularity Desc"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/chip_unselected"
+                app:chipStrokeColor="@color/chip_border"
+                app:chipStrokeWidth="1dp" />
+        </com.google.android.material.chip.ChipGroup>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
